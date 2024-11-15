@@ -201,7 +201,7 @@
 							============================= -->
 							<div class="ph-image">
 								<div class="ph-image-inner">
-									<img src="assets/img/page-header/footer.png" alt="Image">
+									<img src="assets/img/page-header/about.jpg" alt="Image">
 								</div>
 							</div>
 							<!-- End page header image -->
@@ -331,7 +331,7 @@
 															<div class="pgi-caption-inner">
 																<h2 class="pgi-title">Provisioning Services</h2>
 																<div class="pgi-categories-wrap">
-																	<div class="pgi-category">Ship</div>
+																	<div class="pgi-category"></div>
 																	<!-- <div class="pgi-category">Varia</div> -->
 																</div> <!-- /.pli-categories-wrap -->
 															</div> <!-- /.pgi-caption-inner -->
@@ -368,7 +368,7 @@
 															<div class="pgi-caption-inner">
 																<h2 class="pgi-title">Delivery Services</h2>
 																<div class="pgi-categories-wrap">
-																	<div class="pgi-category">Ship</div>
+																	<div class="pgi-category"></div>
 																	<!-- <div class="pgi-category">Varia</div> -->
 																</div> <!-- /.pli-categories-wrap -->
 															</div> <!-- /.pgi-caption-inner -->
@@ -408,7 +408,7 @@
 															<div class="pgi-caption-inner">
 																<h2 class="pgi-title">Safety</h2>
 																<div class="pgi-categories-wrap">
-																	<div class="pgi-category">Ship</div>
+																	<div class="pgi-category"></div>
 																	<!-- <div class="pgi-category">Varia</div> -->
 																</div> <!-- /.pli-categories-wrap -->
 															</div> <!-- /.pgi-caption-inner -->
@@ -445,7 +445,7 @@
 															<div class="pgi-caption-inner">
 																<h2 class="pgi-title">Bonded Stores</h2>
 																<div class="pgi-categories-wrap">
-																	<div class="pgi-category">Ship</div>
+																	<div class="pgi-category"></div>
 																	<!-- <div class="pgi-category">Varia</div> -->
 																</div> <!-- /.pli-categories-wrap -->
 															</div> <!-- /.pgi-caption-inner -->
@@ -748,67 +748,88 @@
 								</div>
 								<!-- End tt-Heading -->
 
-									<!-- Begin form 
-									================ 
-									* Use class "tt-form-filled" or "tt-form-minimal" to change form style.
-									* Use class "tt-form-sm" or "tt-form-lg" to change form size (no class = default size).
-									-->
-									<form id="tt-contact-form" class="tt-form-minimal anim-fadeinup">
+									<!-- Begin form -->
+    <form id="tt-contact-form" class="tt-form-minimal anim-fadeinup">
+        <!-- Begin hidden required fields -->
+        <input type="hidden" name="project_name" value="yourwebsiteaddress.com">
+        <input type="hidden" name="admin_email" value="sales@shipchandlerlaizhou.com">
+        <input type="hidden" name="form_subject" value="Message from yourwebsiteaddress.com">
+        <!-- End Hidden Required Fields -->
 
-										<!-- Begin hidden required fields (https://github.com/agragregra/uniMail) -->
-										<input type="hidden" name="project_name" value="yourwebsiteaddress.com"> <!-- Change value to your site name -->
-										<input type="hidden" name="admin_email" value="your@email.com"> <!-- Change value to your valid email address (where a message will be sent) -->
-										<input type="hidden" name="form_subject" value="Message from yourwebsiteaddress.com"> <!-- Change value to your own message subject -->
-										<!-- End Hidden Required Fields -->
+        <div class="tt-row">
+            <div class="tt-col-md-6">
+                <div class="tt-form-group">
+                    <label>Name <span class="required">*</span></label>
+                    <input class="tt-form-control" type="text" name="Name" required>
+                </div>
+            </div>
+            <div class="tt-col-md-6">
+                <div class="tt-form-group">
+                    <label>Email address <span class="required">*</span></label>
+                    <input class="tt-form-control" type="email" name="Email" required>
+                </div>
+            </div>
+        </div>
 
-										<div class="tt-row">
-											<div class="tt-col-md-6">
+        <div class="tt-form-group">
+            <label>Subject <span class="required">*</span></label>
+            <input class="tt-form-control" type="text" name="Subject" required>
+        </div>
 
-												<div class="tt-form-group">
-													<label>Name <span class="required">*</span></label>
-													<input class="tt-form-control" type="text" name="Name" placeholder="" required>
-												</div>
+        <div class="tt-form-group">
+            <label>Select an option <span class="required">*</span></label>
+            <select class="tt-form-control" name="option" required>
+                <option value="" disabled selected>Please choose an option</option>
+                <option value="Say Hello">Say hello</option>
+                <option value="New Project">New project</option>
+                <option value="Feedback">Feedback</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
 
-											</div> <!-- /.tt-col -->
+        <div class="tt-form-group">
+            <label>Message <span class="required">*</span></label>
+            <textarea class="tt-form-control" rows="6" name="Message" required></textarea>
+        </div>
 
-											<div class="tt-col-md-6">
+        <small class="tt-form-text"><em>Fields marked with an asterisk (*) are required!</em></small>
 
-												<div class="tt-form-group">
-													<label>Email address <span class="required">*</span></label>
-													<input class="tt-form-control" type="email" name="Email" placeholder="" required>
-												</div>
+        <div class="tt-btn tt-btn-light-outline margin-top-40">
+            <button type="submit" data-hover="Send Message">Send Message</button>
+        </div>
+    </form>
+    <!-- End form -->
 
-											</div> <!-- /.tt-col -->
-										</div> <!-- /.tt-row -->
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-										<div class="tt-form-group">
-											<label>Subject <span class="required">*</span></label>
-											<input class="tt-form-control" type="text" name="Subject" placeholder="" required>
-										</div>
+    <!-- JavaScript to handle form submission -->
+    <script>
+    $(document).ready(function() {
+        $('#tt-contact-form').on('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
 
-										<div class="tt-form-group">
-											<label>Select an option <span class="required">*</span></label>
-											<select class="tt-form-control" name="option" required>
-												<option value="" disabled selected>Please choose an option</option>
-												<option value="Say Hello">Say hello</option>
-												<option value="New Project">New project</option>
-												<option value="Feedback">Feedback</option>
-												<option value="Other">Other</option>
-											</select>
-										</div>
+            // Get form data
+            var formData = $(this).serialize();
 
-										<div class="tt-form-group">
-											<label>Message <span class="required">*</span></label>
-											<textarea class="tt-form-control" rows="6" name="Message" placeholder="" required></textarea>
-										</div>
-
-										<small class="tt-form-text"><em>Fields marked with an asterisk (*) are required!</em></small>
-
-										<div class="tt-btn tt-btn-light-outline margin-top-40">
-											<button type="submit" data-hover="Send Message">Send Message</button>
-										</div>
-									</form>
-									<!-- End form -->
+            // Send the form data via AJAX
+            $.ajax({
+                url: 'contact.php', // Replace with your server endpoint
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    // Handle successful response
+                    alert('Your message has been sent successfully!');
+                    $('#tt-contact-form')[0].reset(); // Reset the form
+                },
+                error: function(xhr, status, error) {
+                    // Handle error response
+                    alert('There was an error sending your message. Please try again later.');
+                }
+            });
+        });
+    });
+    </script>
 
 									<!-- Begin contact info 
 										======================== -->
@@ -878,11 +899,12 @@
 										<div class="footer-social-text"><span>Follow</span><i class="fas fa-share-alt"></i></div>
 										<div class="social-buttons">
 											<ul>
-												<li><a href="https://www.facebook.com/themetorium" class="magnetic-item" target="_blank" rel="noopener">Fb.</a></li>
-												<li><a href="https://twitter.com/Themetorium" class="magnetic-item" target="_blank" rel="noopener">Tw.</a></li>
-												<li><a href="https://www.youtube.com/" class="magnetic-item" target="_blank" rel="noopener">Yt.</a></li>
-												<li><a href="https://dribbble.com/Themetorium" class="magnetic-item" target="_blank" rel="noopener">Dr.</a></li>
-												<li><a href="https://www.behance.net/Themetorium" class="magnetic-item" target="_blank" rel="noopener">Be.</a></li>
+												<li><a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fthispagedoesnotexist" class="magnetic-item" target="_blank" rel="noopener">Fb.</a></li>
+												<li><a href="https://x.com/DongyingShip" class="magnetic-item" target="_blank" rel="noopener">Tw.</a></li>
+												<li><a href="https://www.youtube.com/channel/UCTG7FLe35jeCbxo0HUcGxWA" class="magnetic-item" target="_blank" rel="noopener">Yt.</a></li>
+												<li><a href="https://www.pinterest.com/sdongying/" class="magnetic-item" target="_blank" rel="noopener">Pt.</a></li>
+												<li><a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fthis_user_does_not_exist%2F&is_from_rle" class="magnetic-item" target="_blank" rel="noopener">In.</a></li>
+												<li><a href="https://www.linkedin.com/in/ship-chandler-dongying-91025b339/" class="magnetic-item" target="_blank" rel="noopener">Ln.</a></li>
 											</ul>
 										</div> <!-- /.social-buttons -->
 									</div> <!-- /.footer-social -->
